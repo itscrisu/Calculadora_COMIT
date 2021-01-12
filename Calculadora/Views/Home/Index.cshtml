@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="jumbotron">Calculadora en HTML</h1>
+</div>
+<div id="Principal">
+    <div class="row">
+        @*Text Box Resultado*@
+        <div class="col-8">
+            <input type="text" id="txtResultadoId" />
+        </div>
+    </div>
+    <div class="row">
+        @*Primera Linea de Numeros*@
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(7)">7</button>
+        </div>
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(8)">8</button>
+        </div>
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(9)">9</button>
+        </div>
+        <div class="col-2">
+            <button class="botonOperador" onclick="Operar ('-')">-</button>
+        </div>
+    </div>
+    <div class="row">
+        @*Segunda Linea de Numeros*@
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(4)">4</button>
+        </div>
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(5)">5</button>
+        </div>
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(6)">6</button>
+        </div>
+        <div class="col-2">
+            <button class="botonOperador" onclick="Operar ('+')">+</button>
+        </div>
+    </div>
+    <div class="row">
+        @*Tercer Linea de Numeros*@
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(1)">1</button>
+        </div>
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(2)">2</button>
+        </div>
+        <div class="col-2">
+            <button class="botonCalculadora" onclick="MostrarNumero(3)">3</button>
+        </div>
+        <div class="col-2">
+            <button class="botonOperador">/</button>
+        </div>
+    </div>
+    <div class="row">
+        @*Cuarta Linea de Numeros*@
+        <div class="col-4">
+            <button class="botonCero" onclick="MostrarNumero(0)">0</button>
+        </div>
+        <div class="col-2">
+            <button class="botonOperador" onclick="Operar('x')">x</button>
+        </div>
+        <div class="col-2">
+            <button class="botonOperador" onclick="Operar('=')">=</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var textResultado = document.getElementById("txtResultadoId");
+    var resultado = 0;
+    var operador = null;
+
+    function MostrarNumero(numero) {
+
+        this.textResultado.value += numero;
+    }
+
+    function Operar(operador) {
+
+        if (this.operador !== null) {
+
+            switch (this.operador) {
+                case "+":
+                    this.resultado += Number.parseInt(textResultado.value)
+                    this.operador = null;
+                    break;
+                case "-":
+                    this.resultado -= Number.parseInt(textResultado.value)
+                    break;
+            }
+        }
+        else {
+            this.resultado = parseInt(textResultado.value);
+            this.operadorIngresado = operador;
+        }
+        this.textResultado.value = "";
+
+    }
+
+</script>
+

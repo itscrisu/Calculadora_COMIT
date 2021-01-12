@@ -1,0 +1,29 @@
+﻿.botonCalculadora {
+    width: 50px;
+}
+
+.botonCero {
+    width: 100px;
+}
+
+.botonOperador {
+    color: crimson;
+    width: 50px;
+}
+
+#Principal {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#txtResultadoId {
+    width: 204px;
+}
+
+h1 {
+    border: solid;
+    border-color: crimson;
+}
+body {
+}
